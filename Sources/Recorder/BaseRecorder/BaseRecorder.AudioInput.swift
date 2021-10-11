@@ -57,7 +57,7 @@ extension BaseRecorder {
       writingTo outputFileType: AVFileType
     ) -> [String: Any] {
       audioFormat.map { AudioSettings(audioFormat: $0).outputSettings }
-        ?? captureOutput.recommendedAudioSettingsForAssetWriter(writingTo: outputFileType)
+        ?? captureOutput.recommendedAudioSettingsForAssetWriter(writingTo: outputFileType) as? [String: Any] 
         ?? AudioSettings().outputSettings
     }
   }
